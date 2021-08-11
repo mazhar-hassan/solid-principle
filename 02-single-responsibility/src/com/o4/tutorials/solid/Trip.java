@@ -18,11 +18,11 @@ public class Trip {
     }
 
     public void end() {
-        System.out.println("End trip");
-
         distanceInKm = RandomNumber.getDouble(1, 10);
         rateFactor = RandomNumber.getDouble(1, 3) * 5;
         timeInHours = RandomNumber.getDouble(1, 2);
+
+        System.out.println("End trip");
     }
 
     public void cancel() {

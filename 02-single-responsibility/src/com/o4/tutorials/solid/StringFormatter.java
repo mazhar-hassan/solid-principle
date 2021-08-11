@@ -6,13 +6,9 @@ public class StringFormatter {
         StringBuilder result = new StringBuilder("\n");
         result.append("***************************************").append("\n");
 
-        result.append(getTripDetails(bill.trip));
+        result.append(getTripDetails(bill));
 
-        result.append("---------------- Bill ---------------").append("\n");
-        result.append("Base fare: "+bill.baseFare).append("\n");
-        result.append("Peak: +"+bill.peakAmount).append("\n");
-        result.append("discount: -"+bill.discountAmount).append("\n");
-        result.append("Tax: +"+bill.taxAmount).append("\n");
+        result.append(getBillDetails(bill));
 
         result.append("---------------- Payable -------------").append("\n");
         result.append("Payable Fare: "+bill.payableFare).append("\n");
@@ -22,13 +18,25 @@ public class StringFormatter {
         return result.toString();
     }
 
-    private String getTripDetails(Trip trip) {
+    private String  getBillDetails(Billing bill) {
+        StringBuilder result = new StringBuilder();
+
+        result.append("---------------- Bill ---------------").append("\n");
+        result.append("Base fare: "+ bill.baseFare).append("\n");
+        result.append("Peak: +"+ bill.peakAmount).append("\n");
+        result.append("discount: -"+ bill.discountAmount).append("\n");
+        result.append("Tax: +"+ bill.taxAmount).append("\n");
+
+        return result.toString();
+    }
+
+    private String getTripDetails(Billing billing) {
         StringBuilder details = new StringBuilder();
 
         details.append("---------------- Trip details -------").append("\n");
-        details.append("Distance : " + trip.distanceInKm + " km \n");
-        details.append("Time : " + trip.timeInHours + " hr \n");
-        details.append("Rate Factor : " + trip.rateFactor + " hr \n");
+        details.append("Distance : " + billing.distanceInKm + " km \n");
+        details.append("Time : " + billing.timeInHours + " hr \n");
+        details.append("Rate Factor : " + billing.rateFactor + " hr \n");
 
         return details.toString();
     }

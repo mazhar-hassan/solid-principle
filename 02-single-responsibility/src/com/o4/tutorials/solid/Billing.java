@@ -2,25 +2,22 @@ package com.o4.tutorials.solid;
 
 public class Billing {
 
-    public final Trip trip;
-    public final double baseFare;
-    public final double peakAmount;
-    public final double discountAmount;
-    public final double totalFare;
-    public final double taxAmount;
-    public final double payableFare;
-
+    public double baseFare;
+    public double peakAmount;
+    public double discountAmount;
+    public double totalFare;
+    public double taxAmount;
+    public double payableFare;
+    public final double rateFactor;
+    public final double distanceInKm;
+    public final double timeInHours;
 
     public Billing(Booking booking) {
-        trip = booking.trip;
+        timeInHours = booking.trip.timeInHours;
+        rateFactor = booking.trip.rateFactor;
+        distanceInKm = booking.trip.distanceInKm;
 
-        baseFare = Math.ceil((trip.distanceInKm * trip.rateFactor)
-                + (trip.timeInHours * trip.rateFactor));
-
-        peakAmount = Math.ceil(baseFare * booking.peakFactor);
-        discountAmount = Math.floor((baseFare + peakAmount) * booking.discountFactor);
-        totalFare = baseFare + peakAmount - discountAmount;
-        taxAmount = Math.ceil(totalFare * booking.taxFactor);
-        payableFare = totalFare + taxAmount;
+        new FareCalculator().calculate(this, booking);
     }
+
 }

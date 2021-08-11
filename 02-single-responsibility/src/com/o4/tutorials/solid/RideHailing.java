@@ -5,11 +5,12 @@ import com.o4.tutorials.solid.vehicles.MiniCar;
 public class RideHailing {
 
     public static void main(String[] args) {
-        Trip trip = new Trip(new MiniCar());
-        Booking booking = new Booking(trip);
 
-        trip.start();
-        booking.end();
+        Booking booking = new Booking();
+
+        booking.assign(new MiniCar());
+        booking.startTrip();
+        booking.endTrip();
 
         System.out.println(booking);
         Billing billing = new Billing(booking);
