@@ -10,7 +10,7 @@ public class FareCalculator {
             billing.rate = 8;
         } else if (booking.trip.vehicle instanceof NormalCar) {
             billing.rate = 10;
-        }
+        } // else ?
 
         billing.subTotal = Math.ceil((billing.distanceInKm * billing.rate)
                 + (billing.timeInHours * billing.rate));
