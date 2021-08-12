@@ -4,4 +4,6 @@ public interface Vehicle {
     String getCapacity();
 
     String getType();
+
+    double getRate();
 }

@@ -11,4 +11,9 @@ public class MiniCar implements Vehicle {
     public String getType() {
         return "MiniCar";
     }
+
+    @Override
+    public double getRate() {
+        return 5;
+    }
 }

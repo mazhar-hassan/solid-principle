@@ -11,4 +11,9 @@ public class LuxuryCar implements Vehicle {
     public String getType() {
         return "Luxury Car";
     }
+
+    @Override
+    public double getRate() {
+        return 15;
+    }
 }
