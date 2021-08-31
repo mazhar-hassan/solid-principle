@@ -1,9 +1,10 @@
 package com.o4.tutorials.solid;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 public class RandomNumber {
-    static Random random = new Random();
+    static Random random = new SecureRandom();
 
     private RandomNumber() {
     }
