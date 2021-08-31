@@ -3,6 +3,7 @@ package com.o4.tutorials.solid;
 import com.o4.tutorials.solid.factors.FactorsList;
 import com.o4.tutorials.solid.vehicles.MiniCar;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RideHailing {
@@ -17,9 +18,9 @@ public class RideHailing {
         booking.startTrip();
         booking.endTrip();
 
-        logger.info(booking.toString());
+        logger.log(Level.INFO, "The booking details are {0}",booking);
 
         var formatter = new StringFormatter();
-        logger.info(formatter.format(new FareCalculator().calculate(booking)));
+        logger.log(Level.INFO, "Fare details: {0}", formatter.format(new FareCalculator().calculate(booking)));
     }
 }
